@@ -1,0 +1,21 @@
+$space: 20px;
+
+* {
+  box-sizing: border-box;
+}
+
+.wrap {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}
+
+.sidebar {
+  background-color: lightgreen;
+  padding: $space;
+}
+
+.work {
+  background-color: lightblue;
+  padding: $space;
+}

@@ -1,0 +1,19 @@
+.list {
+
+  &_item {
+
+    &:not(first-child) {
+      margin-top: 10px;
+    }
+
+    &_title {
+      color: green;
+    }
+
+    &_stars {
+      font-size: 25px;
+    }
+
+  }
+
+}
