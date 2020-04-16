@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/layout.scss';
-import Input from './components/Input';
+import Search from './containers/Search';
 import List from './components/List';
 import Pagination from './components/Pagination';
 
@@ -23,7 +23,7 @@ const LIST_DEMO = [
 const App = () => (
     <div className="wrap">
         <div className="sidebar">
-            <Input value="repo_search_request" placeholder="Search repo" label="Search repo"/>
+            <Search />
         </div>
         <div className="work">
             <Pagination pages={5}/>

@@ -8,7 +8,7 @@ const Pagination = props => {
                 Array.from({length: props.pages}, (item, index) => {
                     const page = index+1;
                     return (
-                        <a href={page}>{page}</a>
+                        <a key={page} href={page}>{page}</a>
                     )
                 })
             }
