@@ -3,6 +3,7 @@ import './styles/layout.scss';
 import Search from './containers/Search';
 import List from './components/List';
 import Pagination from './components/Pagination';
+import Api from './containers/Api';
 
 const LIST_DEMO = [
     {
@@ -23,9 +24,10 @@ const LIST_DEMO = [
 const App = () => (
     <div className="wrap">
         <div className="sidebar">
-            <Search />
+            <Search/>
         </div>
         <div className="work">
+            <Api />
             <Pagination pages={5}/>
             <List data={LIST_DEMO}/>
         </div>
