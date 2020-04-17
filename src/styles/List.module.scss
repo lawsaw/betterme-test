@@ -6,12 +6,22 @@
       margin-top: 10px;
     }
 
-    &_title {
-      color: green;
+    &:nth-child(2n+1) {
+      background-color: rgba(#666, 0.1);
     }
 
-    &_stars {
-      font-size: 25px;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 200px 1fr;
+    padding: 20px;
+
+    &_title {
+      color: green;
+      word-break: break-all;
+    }
+
+    &_list_item_description {
+
     }
 
   }

@@ -4,8 +4,12 @@ import classes from '../styles/List.module.scss';
 const Item = props => {
     return (
         <div className={classes.list_item}>
-            <div className={classes.list_item_title}>{props.title}</div>
-            <div className={classes.list_item_stars}>{props.stars}</div>
+            <div className={classes.list_item_title}>
+                <a href={props.url} target="_blank">{props.title}</a>
+            </div>
+            <div className={classes.list_item_description}>
+                {props.description}
+            </div>
         </div>
     )
 };
@@ -15,7 +19,7 @@ const List = props => {
         <div className={classes.list}>
             {
                 props.data.map((item, index) => (
-                    <Item key={index} title={item.title} stars={item.stars}/>
+                    <Item key={index} title={item.title} url={item.url} description={item.description}/>
                 ))
             }
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/layout.scss';
 import Search from './containers/Search';
-import List from './components/List';
+import Results from './containers/Results';
 import Pagination from './components/Pagination';
 import Api from './containers/Api';
 
@@ -27,9 +27,9 @@ const App = () => (
             <Search/>
         </div>
         <div className="work">
-            <Api />
+
             <Pagination pages={5}/>
-            <List data={LIST_DEMO}/>
+            <Results />
         </div>
     </div>
 );
