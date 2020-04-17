@@ -1,0 +1,35 @@
+import React from 'react';
+import {connect} from "react-redux";
+import PaginationComponent from "../components/Pagination";
+import {ITEMS_PER_PAGE, SEARCH_RESULT_LIMIT} from "../helpers/constants";
+import {getSearchResults} from "../redux/search-reducer";
+
+const Pagination = props => {
+
+    const handleClick = page => e => {
+        e.preventDefault();
+        props.getSearchResults(page);
+    };
+
+    return (
+        <PaginationComponent
+            pages={props.pages}
+            current_page={props.current_page}
+            onClick={handleClick}
+            is_disabled={props.is_data_fetching}
+        />
+    )
+};
+
+export default connect(
+    state => {
+        const total = state.search.total < SEARCH_RESULT_LIMIT ? state.search.total : SEARCH_RESULT_LIMIT;
+        const pagination_buttons_count = Math.ceil(total / ITEMS_PER_PAGE);
+        return ({
+            pages: pagination_buttons_count,
+            current_page: state.search.current_page,
+            is_data_fetching: state.search.is_data_fetching,
+        })
+    },
+    {getSearchResults}
+)(Pagination);

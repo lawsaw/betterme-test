@@ -8,18 +8,16 @@ const Search = props => {
     const handleSubmit = e => {
         e.preventDefault();
         props.getSearchResults(props.search_request);
-    }
+    };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <Input
-                value={props.search_request}
-                onChange={props.updateSearchRequest}
-                placeholder="Search repo"
-                label="Search repo"
-                is_disabled={props.is_data_fetching}
-            />
-        </form>
+        <Input
+            value={props.search_request}
+            onChange={props.updateSearchRequest}
+            placeholder="Search repo"
+            is_disabled={props.is_data_fetching}
+            handleSubmit={handleSubmit}
+        />
     )
 };
 
@@ -30,6 +28,6 @@ export default connect(
     }),
     dispatch => ({
         updateSearchRequest: e => (dispatch(updateSearchRequest(e.target.value))),
-        getSearchResults: search_request => (dispatch(getSearchResults(search_request))),
+        getSearchResults: () => (dispatch(getSearchResults())),
     })
 )(Search);

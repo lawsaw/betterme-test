@@ -1,13 +1,16 @@
 import React from 'react';
 import classes from '../styles/Input.module.scss';
+import Button from '../components/Button';
 
 const Input = props => {
     return (
-        <div className={classes.input}>
-            <label>{props.label}</label>
+        <form
+            onSubmit={props.handleSubmit}
+            className={classes.input}
+        >
             <input type="text" placeholder={props.placeholder} value={props.value} onChange={props.onChange} />
-            <button disabled={props.is_disabled}>Search</button>
-        </div>
+            <Button disabled={props.is_disabled}>Search</Button>
+        </form>
     )
 };
 

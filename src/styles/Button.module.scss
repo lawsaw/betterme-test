@@ -1,0 +1,28 @@
+@import "constants";
+
+.button {
+  outline: none;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color_link;
+  text-decoration: none;
+  height: $form_elem_size;
+  color: #fff;
+
+  &:hover:not(:disabled) {
+    background-color: darken($color_link, 20%);
+  }
+
+  &:disabled {
+    background-color: lighten($color_link, 30%);
+  }
+
+  &.active {
+    background-color: $color_link_active;
+    color: #fff;
+  }
+
+}
+

@@ -1,4 +1,4 @@
-$space: 20px;
+@import "constants";
 
 * {
   box-sizing: border-box;
@@ -15,19 +15,19 @@ body {
   display: grid;
   grid-template-areas: "sidebar header"
                        "sidebar work";
-  grid-template-rows: 100px 1fr;
+  grid-template-rows: auto 1fr;
   grid-template-columns: 300px 1fr;
 }
 
 .sidebar {
   grid-area: sidebar;
-  background-color: lightgreen;
+  background-color: $color_bg;
   padding: $space;
 }
 
 .header {
   grid-area: header;
-  background-color: lightgrey;
+  background-color: $color_bg;
   padding: $space;
 }
 

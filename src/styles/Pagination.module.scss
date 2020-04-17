@@ -1,10 +1,19 @@
+@import "constants";
+
 .pagination {
 
-  label {
-    display: block;
-  }
+  button {
+    width: $form_elem_size;
+    border-radius: 100%;
 
-  input {
+    &:not(:last-child) {
+      margin-right: 5px;
+    }
+
+    &:not(:disabled) {
+      cursor: pointer;
+    }
+
   }
 
 }
