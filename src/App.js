@@ -1,35 +1,21 @@
 import React from 'react';
-import './styles/layout.scss';
+import classes from './styles/App.module.scss';
 import Search from './containers/Search';
 import Results from './containers/Results';
 import Pagination from './components/Pagination';
-import Api from './containers/Api';
-
-const LIST_DEMO = [
-    {
-        title: 'demo_repo1',
-        stars: 5,
-    }, {
-        title: 'demo_repo2',
-        stars: 3,
-    }, {
-        title: 'demo_repo3',
-        stars: 4,
-    }, {
-        title: 'demo_repo4',
-        stars: 1,
-    },
-];
 
 const App = () => (
-    <div className="wrap">
-        <div className="sidebar">
+    <div className={classes.wrap}>
+        <div className={classes.sidebar}>
             <Search/>
         </div>
-        <div className="work">
-
+        <div className={classes.header}>
             <Pagination pages={5}/>
-            <Results />
+        </div>
+        <div className={classes.work}>
+            <div className={classes.work_content}>
+                <Results/>
+            </div>
         </div>
     </div>
 );

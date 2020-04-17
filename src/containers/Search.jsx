@@ -7,7 +7,7 @@ const Search = props => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        props.getSearchResults(props.search_request)();
+        props.getSearchResults(props.search_request);
     }
 
     return (
@@ -17,8 +17,8 @@ const Search = props => {
                 onChange={props.updateSearchRequest}
                 placeholder="Search repo"
                 label="Search repo"
+                is_disabled={props.is_data_fetching}
             />
-            <button disabled={props.is_in_progress}>Search</button>
         </form>
     )
 };
@@ -26,10 +26,10 @@ const Search = props => {
 export default connect(
     state => ({
         search_request: state.search.search_request,
-        is_in_progress: state.search.is_in_progress,
+        is_data_fetching: state.search.is_data_fetching,
     }),
     dispatch => ({
         updateSearchRequest: e => (dispatch(updateSearchRequest(e.target.value))),
-        getSearchResults: search_request => () => (dispatch(getSearchResults(search_request))),
+        getSearchResults: search_request => (dispatch(getSearchResults(search_request))),
     })
 )(Search);

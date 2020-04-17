@@ -6,6 +6,7 @@ const Input = props => {
         <div className={classes.input}>
             <label>{props.label}</label>
             <input type="text" placeholder={props.placeholder} value={props.value} onChange={props.onChange} />
+            <button disabled={props.is_disabled}>Search</button>
         </div>
     )
 };

@@ -1,0 +1,47 @@
+$space: 20px;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.wrap {
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas: "sidebar header"
+                       "sidebar work";
+  grid-template-rows: 100px 1fr;
+  grid-template-columns: 300px 1fr;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: lightgreen;
+  padding: $space;
+}
+
+.header {
+  grid-area: header;
+  background-color: lightgrey;
+  padding: $space;
+}
+
+.work {
+  grid-area: work;
+  position: relative;
+  overflow: auto;
+
+  &_content {
+    padding: $space;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
