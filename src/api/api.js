@@ -16,6 +16,14 @@ export const getRepos = async (search_request = '', page = 1, abort_controller =
             signal: abort_controller.signal,
         };
     }
-    const response = await octokit.search.repos(query);
-    return response.data;
+    return octokit.search.repos(query)
+        .then(response => {
+            return response.data;
+        })
+        // .catch(e => {
+        //     console.log(e.message);
+        // })
+
+    // const response = await octokit.search.repos(query);
+    // return response.data;
 };

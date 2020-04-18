@@ -22,14 +22,20 @@ body {
 .sidebar {
   grid-area: sidebar;
   background-color: $color_bg;
-  padding: $space;
+  display: grid;
+  grid-template-areas: "form"
+                       "log";
+  grid-template-rows: 90px 1fr;
+}
 
+.form {
+  grid-area: form;
+  padding: $space;
   &_item {
     &:not(:first-child) {
       margin-top: 10px;
     }
   }
-
 }
 
 .footer {
@@ -51,4 +57,22 @@ body {
     right: 0;
     bottom: 0;
   }
+
+}
+
+.log {
+  grid-area: log;
+  position: relative;
+  padding: $space;
+  &_content {
+    background-color: #fff;
+    padding: $space;
+    overflow: auto;
+    position: absolute;
+    left: $space;
+    top: $space;
+    right: $space;
+    bottom: $space;
+  }
+
 }

@@ -1,0 +1,12 @@
+@import "constants";
+
+.log {
+
+  &_item {
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+
+}
+

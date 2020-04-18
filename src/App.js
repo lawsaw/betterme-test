@@ -4,17 +4,23 @@ import Search from './containers/Search';
 import Results from './containers/Results';
 import Pagination from './containers/Pagination';
 import Cancel from './containers/Cancel';
-import ErrorLog from './containers/Log';
+import Log from './containers/Log';
 
 const App = () => (
     <div className={classes.wrap}>
         <div className={classes.sidebar}>
-            {
-                [<Search/>, <Cancel/>].map((component, index) => (
-                    <div key={index} className={classes.sidebar_item}>{component}</div>
-                ))
-            }
-            <ErrorLog />
+            <div className={classes.form}>
+                {
+                    [<Search/>, <Cancel/>].map((component, index) => (
+                        <div key={index} className={classes.form_item}>{component}</div>
+                    ))
+                }
+            </div>
+            <div className={classes.log}>
+                <div className={classes.log_content}>
+                    <Log/>
+                </div>
+            </div>
         </div>
         <div className={classes.work}>
             <div className={classes.work_content}>
@@ -22,7 +28,7 @@ const App = () => (
             </div>
         </div>
         <div className={classes.footer}>
-            <Pagination />
+            <Pagination/>
         </div>
     </div>
 );

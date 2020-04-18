@@ -1,13 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {compose} from 'redux';
 import Input from '../components/Input';
-import {updateSearchRequest, getSearchResults} from '../redux/search-reducer';
+import {updateSearchRequest} from '../redux/search-reducer';
+import {withCache} from '../hoc/withCache';
 
 const Search = props => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        props.getSearchResults(props.search_request);
+        props.changeQuery();
     };
 
     return (
@@ -21,13 +23,15 @@ const Search = props => {
     )
 };
 
-export default connect(
-    state => ({
-        search_request: state.search.search_request,
-        is_data_fetching: state.search.is_data_fetching,
-    }),
-    dispatch => ({
-        updateSearchRequest: e => (dispatch(updateSearchRequest(e.target.value))),
-        getSearchResults: () => (dispatch(getSearchResults())),
-    })
+export default compose(
+    connect(
+        state => ({
+            search_request: state.search.search_request,
+            is_data_fetching: state.search.is_data_fetching,
+        }),
+        dispatch => ({
+            updateSearchRequest: e => (dispatch(updateSearchRequest(e.target.value))),
+        })
+    ),
+    withCache
 )(Search);
