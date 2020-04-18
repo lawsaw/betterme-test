@@ -1,12 +1,14 @@
-
+@import "constants";
 
 .input {
 
-  label {
-    display: block;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 
   input {
+    flex-grow: 1;
+    height: $form_elem_size;
   }
 
 }

@@ -1,0 +1,25 @@
+@import "constants";
+
+.message {
+
+  font-size: 15px;
+  margin: 10px 0;
+
+  &_error {
+    color: $color_error;
+  }
+
+  &_warning {
+    color: $color_warning;
+  }
+
+  &_info {
+    color: $color_info;
+  }
+
+  &_success {
+    color: $color_success;
+  }
+
+}
+

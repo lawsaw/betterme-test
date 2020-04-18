@@ -24,6 +24,7 @@ const Pagination = props => {
 export default connect(
     state => {
         const total = state.search.total < SEARCH_RESULT_LIMIT ? state.search.total : SEARCH_RESULT_LIMIT;
+        //TODO: Use `total` to not display pages from over 1000, because of the github's error message. Or use `state.search.total` do display it and get message showed.
         const pagination_buttons_count = Math.ceil(total / ITEMS_PER_PAGE);
         return ({
             pages: pagination_buttons_count,

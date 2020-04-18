@@ -7,7 +7,7 @@ const Pagination = props => {
         <div className={classes.pagination}>
             {
                 Array.from({length: props.pages}, (item, index) => {
-                    const page = index+1;
+                    const page = index + 1;
                     const is_current_page = props.current_page === page;
                     return (
                         <Button
@@ -15,7 +15,9 @@ const Pagination = props => {
                             is_active={is_current_page}
                             onClick={props.onClick(page)}
                             disabled={props.is_disabled || is_current_page}
-                        >{page}</Button>
+                        >
+                            {page}
+                        </Button>
                     )
                 })
             }

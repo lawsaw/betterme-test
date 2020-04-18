@@ -10,7 +10,12 @@ const Cancel = props => {
     };
 
     return (
-        <Button onClick={handleCancel} disabled={!props.is_data_fetching}>Cancel</Button>
+        <Button
+            onClick={handleCancel}
+            disabled={!props.is_data_fetching}
+        >
+            Cancel request
+        </Button>
     )
 };
 

@@ -5,7 +5,12 @@ const Item = props => {
     return (
         <div className={classes.list_item}>
             <div className={classes.list_item_title}>
-                <a href={props.url} target="_blank">{props.title}</a>
+                <a
+                    href={props.url}
+                    target="_blank"
+                >
+                    {props.title}
+                </a>
             </div>
             <div className={classes.list_item_description}>
                 {props.description}
@@ -18,8 +23,13 @@ const List = props => {
     return (
         <div className={classes.list}>
             {
-                props.data.map((item, index) => (
-                    <Item key={index} title={item.title} url={item.url} description={item.description}/>
+                props.data.map(item => (
+                    <Item
+                        key={item.id}
+                        title={item.title}
+                        url={item.url}
+                        description={item.description}
+                    />
                 ))
             }
         </div>

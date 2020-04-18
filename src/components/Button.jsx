@@ -6,7 +6,9 @@ const Button = ({children, className, is_active, ...props}) => {
         <button
             {...props}
             className={[classes.button, className || '', is_active ? classes.active : ''].join(' ')}
-        >{children}</button>
+        >
+            {children}
+        </button>
     )
 };
 

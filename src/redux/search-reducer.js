@@ -12,7 +12,6 @@ let initial_state = {
     is_data_fetching: false,
     search_results: null,
     total: 0,
-    is_list_ended: false,
     current_page: false,
     abort_controller: null,
     error_message: '',
@@ -30,7 +29,6 @@ const searchReducer = (state = initial_state, action) => {
                 ...state,
                 search_results: action.data,
                 total: action.total,
-                is_list_ended: action.is_list_ended,
             };
         case TOGGLE_IS_FETCHING_DATA:
             return {
@@ -58,12 +56,7 @@ const searchReducer = (state = initial_state, action) => {
 };
 
 export const updateSearchRequest = search_request => ({type: UPDATE_SEARCH_REQUEST, search_request});
-export const setSearchResults = (data, total, is_list_ended) => ({
-    type: SET_SEARCH_RESULTS,
-    data,
-    total,
-    is_list_ended
-});
+export const setSearchResults = (data, total) => ({type: SET_SEARCH_RESULTS, data, total});
 export const toggleIsFetchingData = status => ({type: TOGGLE_IS_FETCHING_DATA, status});
 export const updateCurrentPage = page => ({type: UPDATE_CURRENT_PAGE, page});
 export const setAbortSignal = abort_controller => ({type: SET_ABORT_SIGNAL, abort_controller});
@@ -82,14 +75,14 @@ export const getSearchResults = (page = 1) => (dispatch, getState) => {
                 url: item.html_url,
                 description: item.description,
             }));
-            const {total_count: total, incomplete_results: is_list_ended} = response;
-            dispatch(setSearchResults(data, total, is_list_ended));
+            const {total_count: total} = response;
+            dispatch(setSearchResults(data, total));
             dispatch(updateCurrentPage(page));
             dispatch(toggleIsFetchingData(false));
         })
         .catch(e => {
             dispatch(toggleIsFetchingData(false));
-            dispatch(setAbortSignal(e.message));
+            dispatch(setErrorMessage(e.message));
         });
 };
 

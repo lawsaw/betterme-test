@@ -13,9 +13,9 @@ body {
 .wrap {
   min-height: 100vh;
   display: grid;
-  grid-template-areas: "sidebar header"
-                       "sidebar work";
-  grid-template-rows: auto 1fr;
+  grid-template-areas: "sidebar work"
+                       "sidebar footer";
+  grid-template-rows: 1fr auto;
   grid-template-columns: 300px 1fr;
 }
 
@@ -23,10 +23,17 @@ body {
   grid-area: sidebar;
   background-color: $color_bg;
   padding: $space;
+
+  &_item {
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+
 }
 
-.header {
-  grid-area: header;
+.footer {
+  grid-area: footer;
   background-color: $color_bg;
   padding: $space;
 }
