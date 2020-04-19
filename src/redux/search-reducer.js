@@ -29,8 +29,8 @@ const searchReducer = (state = initial_state, action) => {
             return {
                 ...state,
                 log: [
+                    {message: action.message, type: action.message_type},
                     ...state.log,
-                    {message: action.message, type: action.message_type}
                 ],
             };
         case ADD_CACHE:

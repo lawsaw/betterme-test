@@ -3,7 +3,7 @@ import {ITEMS_PER_PAGE} from "../helpers/constants";
 
 const octokit = new Octokit();
 
-export const getRepos = async (search_request = '', page = 1, abort_controller = null) => {
+export const getRepos = (search_request = '', page = 1, abort_controller = null) => {
     const query = {
         q: search_request,
         sort: 'stars',
