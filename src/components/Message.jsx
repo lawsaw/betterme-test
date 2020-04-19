@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 import classes from '../styles/Message.module.scss';
 
@@ -11,6 +12,12 @@ const Message = ({children, className, type = "info", ...props}) => {
             {children}
         </div>
     )
+};
+
+Message.propTypes = {
+    children: PropTypes.string,
+    className: PropTypes.string,
+    type: PropTypes.string,
 };
 
 export default Message;

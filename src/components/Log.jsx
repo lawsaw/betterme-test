@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classes from '../styles/Log.module.scss';
 import Message from "./Message";
 
@@ -12,6 +13,11 @@ const Log = props => {
             {message}
         </Message>
     ))
+};
+
+Log.propTypes = {
+    message: PropTypes.string,
+    type: PropTypes.string,
 };
 
 export default Log;

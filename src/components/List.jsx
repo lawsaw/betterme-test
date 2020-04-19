@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classes from '../styles/List.module.scss';
 
 const Item = props => {
@@ -35,6 +36,24 @@ const List = props => {
             }
         </div>
     )
+};
+
+//TODO: I know that it's not important because of List rule
+Item.propTypes = {
+    url: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.string,
+};
+
+List.propTypes = {
+    data: PropTypes.arrayOf(
+        PropTypes.objectOf(
+            PropTypes.oneOfType([
+                PropTypes.number,
+                PropTypes.string,
+            ])
+        )
+    ),
 };
 
 export default List;
