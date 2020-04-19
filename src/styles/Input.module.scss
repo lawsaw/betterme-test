@@ -6,11 +6,17 @@
   align-items: center;
   justify-content: flex-start;
 
-  input {
-    width: 100%;
-    height: $form_elem_size;
-    padding-left: $space;
-    padding-right: $space;
+  .field {
+
+    flex-grow: 1;
+
+    input {
+      width: 100%;
+      height: $form_elem_size;
+      padding-left: $space;
+      padding-right: $space;
+    }
+
   }
 
 }

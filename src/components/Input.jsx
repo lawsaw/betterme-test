@@ -8,12 +8,14 @@ const Input = props => {
             onSubmit={props.handleSubmit}
             className={classes.input}
         >
-            <input
-                type="text"
-                placeholder={props.placeholder}
-                value={props.value}
-                onChange={props.onChange}
-            />
+            <div className={classes.field}>
+                <input
+                    type="text"
+                    placeholder={props.placeholder}
+                    value={props.value}
+                    onChange={props.onChange}
+                />
+            </div>
             <Button disabled={props.is_disabled}>
                 Search
             </Button>
