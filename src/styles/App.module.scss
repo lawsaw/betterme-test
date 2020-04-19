@@ -10,52 +10,51 @@ body {
   padding: 0;
 }
 
-.wrap {
-  min-height: 100vh;
-  display: grid;
-  grid-template-areas: "sidebar work"
-                       "sidebar footer";
-  grid-template-rows: 1fr auto;
-  grid-template-columns: 300px 1fr;
+.log,
+.log_content,
+.work,
+.work_content,
+.form,
+.footer {
+  padding: $space;
 }
 
-.sidebar {
-  grid-area: sidebar;
-  background-color: $color_bg;
+.wrap {
+  height: 100vh;
   display: grid;
-  grid-template-areas: "form"
-                       "log";
-  grid-template-rows: 90px 1fr;
+  grid-template-areas: "form work"
+                       "log work"
+                       "log work"
+                       "log pagination";
+  grid-template-rows: auto 1fr 1fr auto;
+  grid-template-columns: 300px 1fr;
+  background-color: $color_bg;
+
 }
 
 .form {
   grid-area: form;
-  padding: $space;
+
   &_item {
     &:not(:first-child) {
       margin-top: 10px;
     }
   }
+
 }
 
-.footer {
-  grid-area: footer;
-  background-color: $color_bg;
-  padding: $space;
+.pagination {
+  grid-area: pagination;
 }
 
 .work {
   grid-area: work;
   position: relative;
-  overflow: auto;
 
   &_content {
-    padding: $space;
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    overflow: auto;
+    background-color: #fff;
+    height: 100%;
   }
 
 }
@@ -63,16 +62,11 @@ body {
 .log {
   grid-area: log;
   position: relative;
-  padding: $space;
+
   &_content {
-    background-color: #fff;
-    padding: $space;
     overflow: auto;
-    position: absolute;
-    left: $space;
-    top: $space;
-    right: $space;
-    bottom: $space;
+    background-color: #fff;
+    height: 100%;
   }
 
 }

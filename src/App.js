@@ -8,18 +8,16 @@ import Log from './containers/Log';
 
 const App = () => (
     <div className={classes.wrap}>
-        <div className={classes.sidebar}>
-            <div className={classes.form}>
-                {
-                    [<Search/>, <Cancel/>].map((component, index) => (
-                        <div key={index} className={classes.form_item}>{component}</div>
-                    ))
-                }
-            </div>
-            <div className={classes.log}>
-                <div className={classes.log_content}>
-                    <Log/>
-                </div>
+        <div className={classes.form}>
+            {
+                [<Search/>, <Cancel/>].map((component, index) => (
+                    <div key={index} className={classes.form_item}>{component}</div>
+                ))
+            }
+        </div>
+        <div className={classes.log}>
+            <div className={classes.log_content}>
+                <Log/>
             </div>
         </div>
         <div className={classes.work}>
@@ -27,7 +25,7 @@ const App = () => (
                 <Results/>
             </div>
         </div>
-        <div className={classes.footer}>
+        <div className={classes.pagination}>
             <Pagination/>
         </div>
     </div>

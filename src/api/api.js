@@ -20,10 +20,4 @@ export const getRepos = async (search_request = '', page = 1, abort_controller =
         .then(response => {
             return response.data;
         })
-        // .catch(e => {
-        //     console.log(e.message);
-        // })
-
-    // const response = await octokit.search.repos(query);
-    // return response.data;
 };

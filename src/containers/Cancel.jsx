@@ -21,7 +21,7 @@ const Cancel = props => {
 
 export default connect(
     state => ({
-        abort_controller: state.search.abort_controller,
+        abort_controller: state.search.query.abort_controller,
         is_data_fetching: state.search.is_data_fetching,
     }),
 )(Cancel);

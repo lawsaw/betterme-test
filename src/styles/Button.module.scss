@@ -13,6 +13,7 @@
 
   &:hover:not(:disabled) {
     background-color: darken($color_link, 20%);
+    cursor: pointer;
   }
 
   &:disabled {
