@@ -23,7 +23,7 @@ const Search = props => {
 
 export default connect(
     state => ({
-        request: state.search.request,
+        request: state.search.query.request,
         is_data_fetching: state.search.is_data_fetching,
     }),
     dispatch => ({
